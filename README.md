@@ -1,21 +1,15 @@
-# [NOME DA DISCIPLINA] X sem. 20XX
 
-## Turma XXX
-## Projeto: "nome do projeto"
-## Integrantes do grupo:
+# [Circuitos Elétricos e Eletrônicos] 2º sem. 2018
 
-* Aluno 1
-* Aluno 2
-* Aluno 3
-* Aluno 4
+## Turma 1G
+## Projeto: WebLight
+## Autor: Pedro Padilha Farroco
 
-## Descrição resumida do projeto
+#### Descrição resumida do projeto
 
-Descreva resumidamente o projeto aqui.
+O projeto consiste em acionar uma lâmpada através da internet, utilizando o protocolo MQTT
 
 _______________________________________
-Obs:
+[src/](https://github.com/pedropadilha13/mackenzie-projeto-luz/tree/master/src) Código
 
-`src/` deve conter os códigos desenvolvidos
-
-`doc/` documentação do projeto
+[doc/](https://github.com/pedropadilha13/mackenzie-projeto-luz/tree/master/docs) Documentação
