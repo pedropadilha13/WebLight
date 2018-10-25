@@ -4,7 +4,7 @@
 const char* mqttServer = "test.mosquitto.org";
 const int mqttPort = 1883;
 
-const char* cred[] = {"Pedro", "3331926740"};
+const char* cred[] = {"Digital_School", "@bestlab"};
 
 const char* client_id = "WebLight";
 const char* thread = "pedropadilha13/trabalho/#";
@@ -47,7 +47,7 @@ void connect() {
       Serial.println("connected");
     } else {
       Serial.print("failed with state ");
-      Serial.print(client.state());
+      Serial.println(client.state());
       delay(2000);
     }
   }
@@ -66,7 +66,6 @@ void callback(char* topic, byte* payload, unsigned int length) {
   }
 
   Serial.println(message);
-
 
   String command = "";
   String pin = "";
@@ -87,46 +86,51 @@ void callback(char* topic, byte* payload, unsigned int length) {
     pin = message;
   }
 
-  Serial.print("Command: ");
-  Serial.println(command);
-  Serial.print("pin: ");
-  Serial.println(pin);
-  Serial.print("Message: ");
-  Serial.println(message.toInt());
+  if (command.equals("responses")) {
+    Serial.println("(This was simply a response most likely sent by this device to broadcast the requested data.)");
+  } else {
+    Serial.print("Command: ");
+    Serial.println(command);
+    Serial.print("pin: ");
+    Serial.println(pin);
 
-  int pinNumber = pin.toInt();
+    int pinNumber = pin.toInt();
 
-  if (command.equals("read") || command.equals("r") || command.equals("digitalRead") || command.equals("readDigital")) {
-    //Serial.print("digitalRead");
-    //Serial.println(pin.toInt());
-    pinMode(pinNumber, INPUT);
-    int reading = digitalRead(pinNumber);
-    char* response;
-    itoa(reading, response, 10);
-    client.publish(response_topic, response);
-  } else if (command.equals("analogRead") || command.equals("readAnalog")) {
-    //Serial.print("analogRead");
-    //Serial.println(pinNumber);
-    pinMode(pinNumber, INPUT);
-    int reading = analogRead(pinNumber);
-    char* response;
-    itoa(reading, response, 10);
-    client.publish(response_topic, response);
-  } else if (command.equals("digitalWrite") || command.equals("writeDigital") || command.equals("write") || command.equals("w")) {
-    Serial.print("digitalWrite");
-    Serial.println(pinNumber);
-    pinMode(pinNumber, OUTPUT);
-    boolean state = (message == "1" || message == "HIGH" || message == "true" || message == "on");
-    digitalWrite(pinNumber, state);    
-  } else if (command.equals("analogWrite") || command.equals("writeAnalog")) {
-    //Serial.print("analogWrite");
-    //Serial.println(pinNumber);
-    pinMode(pinNumber, OUTPUT);
-    analogWrite(pinNumber, message.toInt());
+    if (command.equals("read") || command.equals("r") || command.equals("digitalRead") || command.equals("readDigital")) {
+      //Serial.print("digitalRead");
+      //Serial.println(pin.toInt());
+      pinMode(pinNumber, INPUT);
+      int reading = digitalRead(pinNumber);
+      //Serial.print("reading: ");
+      //Serial.println(reading);
+      char response[8];
+      itoa(reading, response, 10);
+      client.publish(response_topic, response);
+    } else if (command.equals("analogRead") || command.equals("readAnalog")) {
+      //Serial.print("analogRead");
+      //Serial.println(pinNumber);
+      pinMode(pinNumber, INPUT);
+      int reading = analogRead(pinNumber);
+      //Serial.print("reading: ");
+      //Serial.println(reading);
+      char response[8];
+      itoa(reading, response, 10);
+      client.publish(response_topic, response);
+    } else if (command.equals("digitalWrite") || command.equals("writeDigital") || command.equals("write") || command.equals("w")) {
+      //Serial.print("digitalWrite");
+      //Serial.println(pinNumber);
+      pinMode(pinNumber, OUTPUT);
+      boolean state = (message == "1" || message == "HIGH" || message == "true" || message == "on");
+      digitalWrite(pinNumber, state);
+    } else if (command.equals("analogWrite") || command.equals("writeAnalog")) {
+      //Serial.print("analogWrite");
+      //Serial.println(pinNumber);
+      pinMode(pinNumber, OUTPUT);
+      analogWrite(pinNumber, message.toInt());
+    }
   }
 
-  Serial.println();
-  Serial.println("-----------------------");
+  Serial.println("\n---------------------------\n");
 
 
 }
