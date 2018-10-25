@@ -7,7 +7,7 @@
 
 ## Objetivo do Trabalho
 
-Desenvolver uma soluçaão
+Desenvolver uma s
 
 ## Pré-requisitos
 
@@ -18,7 +18,7 @@ Desenvolver uma soluçaão
 **3. Pessoais:** Embora não seja necessário para a execução do projeto, é bom ter conhecimentos sobre a linguagem de programação do Arduino para entender o funcionamento dele (e também fazer alterações, caso seja do seu interesse)
 
 ## Hardware
-###### Utilizaremos um LED e um botão para a demonstração
+###### (Utilizaremos um LED e um botão para a demonstração)
 
 1. NodeMCU
 
@@ -30,7 +30,11 @@ Desenvolver uma soluçaão
 
 3. Switch
 
-    ![switch](images/switch.jpg)
+    ![switch](images/switch.jpeg)
+
+4. Jumpers
+
+    ![jumpers](images/jumpers.jpg)
 
 ## Instalação
 
@@ -50,10 +54,33 @@ Desenvolver uma soluçaão
 
 Antes de enviar o código para a placa, você deve configurar o SSID e a senha da sua rede Wi-Fi no sketch, localizados na variável ```cred``` declarada no início do código. Depois disso, basta enviar o código para a placa!
 
-
 ## Como funciona
 
+Ao receber uma nova mensagem em qualquer subtópico de pedropadilha13/trabalho (#), o Arduino avalia a mensagem e, com base no comando recebido, realiza uma ação diferente.
 
+- read/r/digitalRead/readDigital:
+        - Publica uma mensagem no tópico pedropadilha13/trabalho/responses contendo o valor digital lido da porta especificada na mensagem
+- analogRead/readAnalog:
+        - Publica uma mensagem no tópico pedropadilha13/trabalho/responses contendo o valor analógico lido da porta especificada na mensagem
+- digitalWrite/writeDigital/write/w:
+        - Escreve o valor digital recebido na mensagem na porta especificada no subtópico de ```trabalho```
+- analogWrite:
+        - Escreve o valor analógico recebido na mensagem na porta especificada no subtópico de ```trabalho```
+
+## Exemplos
+
+| tópico                                | mensagem | resultado                           |
+|---------------------------------------|----------|-------------------------------------|
+| pedropadilha13/trabalho/write/2       | 1        | Escreve HIGH na porta D4            |
+| pedropadilha13/trabalho/read          | 4        | Lê o valor digital da porta D2      |
+| pedropadilha13/trabalho/analogWrite/2 | 100      | Escreve o valor 100 na porta PWM D4 |
+| pedropadilha13/trabalho/analogRead    | 2        | Lê o valor analógico da porta D4    |
+
+#### Obs.: As ações (write, digitalRead, analogWrite etc) podem ser substituídas por outras equivalentes, o resultado é o mesmo
+
+## Demo (vídeo)
+
+[![Abrir YouTube](images/video.jpg)](https://youtube.com/pedropadilha13/)
 
 ## License
 
