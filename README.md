@@ -7,7 +7,7 @@
 
 ## Objetivo do Trabalho
 
-Desenvolver uma solucçaão
+Desenvolver uma soluçaão
 
 ## Pré-requisitos
 
@@ -30,7 +30,7 @@ Desenvolver uma solucçaão
 
 3. Switch
 
-    ![switch](switch.jpg)
+    ![switch](images/switch.jpg)
 
 ## Instalação
 
