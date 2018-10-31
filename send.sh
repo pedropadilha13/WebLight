@@ -1,1 +1,1 @@
-mosquitto_pub -h test.mosquitto.org -t pedropadilha13/trabalho/$1 -m $2
+mosquitto_pub -h test.mosquitto.org -t pedropadilha13/weblight/$1 -m $2
