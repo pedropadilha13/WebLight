@@ -7,8 +7,8 @@ const int mqttPort = 1883;
 const char* cred[] = {"Digital_School", "@bestlab"};
 
 const char* client_id = "WebLight";
-const char* thread = "pedropadilha13/trabalho/#";
-const char* response_topic = "pedropadilha13/trabalho/responses";
+const char* thread = "pedropadilha13/weblight/#";
+const char* response_topic = "pedropadilha13/weblight/responses";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
