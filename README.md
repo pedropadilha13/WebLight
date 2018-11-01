@@ -60,6 +60,8 @@ Antes de enviar o código para a placa, você deve configurar o SSID e a senha d
 
 ## Como funciona
 
+A placa automaticamente se conecta à rede Wi-Fi configurada no programa e, logo em seguida, ao broker MQTT.
+
 Ao receber uma nova mensagem em qualquer subtópico de pedropadilha13/weblight (#), o Arduino avalia a mensagem e, com base no comando recebido, age de acordo.
 
 - `read`/`r`/`digitalRead`/`readDigital`:
@@ -81,6 +83,14 @@ Ao receber uma nova mensagem em qualquer subtópico de pedropadilha13/weblight (
 | pedropadilha13/weblight/analogRead    | 2        | Lê o valor analógico da porta D4    |
 
 ##### Obs.: As ações (write, digitalRead, analogWrite etc) podem ser substituídas por outras equivalentes, o resultado será o mesmo.
+
+## [listen.sh](listen.sh) e [send.sh](send.sh)
+
+Estes arquivos servem apenas para simplificar o recebimento/envio de comandos.
+- [listen](listen.sh): não recebe argumentos, apenas executa o comando `mosquitto_sub` no servidor e tópico corretos
+- [send](send.sh): executa o comando `mosquitto_pub` - recebe dois argumentos, sendo eles:
+    - $1: comando, ou seja, a última parte do tópico (o que vem depois de `pedropadilha13/weblight/`)
+    - $2: a mensagem (porta a ser manipulada/lida)
 
 ## Demo (vídeo)
 
