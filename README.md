@@ -7,7 +7,7 @@
 
 ## Objetivo do Trabalho
 
-Desenvolver uma solução utilizando os conceitos aprendidos em sala de aula a respeito de eletrônica, Arduino, e afins.
+Desenvolver uma solução utilizando os conceitos aprendidos em sala de aula a respeito de eletrônica, Arduino e afins.
 
 ## Descrição do Projeto
 
@@ -56,7 +56,7 @@ O projeto consiste em permitir que uma placa ESP8266 possa ser controlada remota
 
 ## Execução
 
-Antes de enviar o código para a placa, você deve configurar o SSID e a senha da sua rede Wi-Fi no sketch. Isso pode ser feito alterando a variável ```cred``` declarada no início do código. Depois disso, basta enviar o programa para a placa!
+Antes de enviar o código para a placa, você deve configurar o SSID e a senha da sua rede Wi-Fi no sketch. Isso é feito alterando a variável ```cred``` declarada no início do código. Depois disso, basta enviar o programa para a placa!
 
 ## Como funciona
 
@@ -65,13 +65,14 @@ A placa automaticamente se conecta à rede Wi-Fi configurada no programa e, logo
 Ao receber uma nova mensagem em qualquer subtópico de pedropadilha13/weblight (#), o Arduino avalia a mensagem e, com base no comando recebido, age de acordo.
 
 - `read`/`r`/`digitalRead`/`readDigital`:
-        - Publica uma mensagem no tópico pedropadilha13/weblight/responses contendo o valor digital lido da porta especificada na mensagem
+	- Publica uma mensagem no tópico pedropadilha13/weblight/responses contendo o valor digital lido da porta especificada na mensagem
 - `analogRead`/`readAnalog`:
-        - Publica uma mensagem no tópico pedropadilha13/weblight/responses contendo o valor analógico lido da porta especificada na mensagem
+
+	 - Publica uma mensagem no tópico pedropadilha13/weblight/responses contendo o valor analógico lido da porta especificada na mensagem
 - `digitalWrite`/`writeDigital`/`write`/`w`:
-        - Escreve o valor digital recebido na mensagem na porta especificada no subtópico de ```weblight```
+	- Escreve o valor digital recebido na mensagem na porta especificada no subtópico de ```weblight```
 - `analogWrite`/`writeAnalog`:
-        - Escreve o valor analógico recebido na mensagem na porta especificada no subtópico de ```weblight```
+	- Escreve o valor analógico recebido na mensagem na porta especificada no subtópico de ```weblight```
 
 ## Exemplos
 
