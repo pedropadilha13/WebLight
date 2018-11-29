@@ -93,10 +93,6 @@ Estes arquivos servem apenas para simplificar o recebimento/envio de comandos.
     - $1: comando, ou seja, a última parte do tópico (o que vem depois de `pedropadilha13/weblight/`)
     - $2: a mensagem (porta a ser manipulada/lida)
 
-## Demo (vídeo)
-
-[![Abrir YouTube](images/video.jpg)](https://youtube.com/pedropadilha13/)
-
 ## License
 
 This project is licensed under the MIT License - see [LICENSE](LICENSE) for details
