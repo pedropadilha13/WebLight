@@ -24,9 +24,11 @@ O projeto consiste em permitir que uma placa ESP8266 possa ser controlada remota
 ## Hardware
 ###### (Utilizaremos um LED e um switch para a demonstração)
 
-1. NodeMCU
+1. [NodeMCU](https://en.wikipedia.org/wiki/NodeMCU)
 
     ![placa](images/nodemcu.jpg)
+
+    NodeMCU é uma plataforma de desenvolvimento IoT baseado no chip ESP8266. Ele funciona baseado na linguagem Lua, mas utilizaremos a linguagem (e a IDE) do Arduino para programá-lo.
 
 2. LED
 
