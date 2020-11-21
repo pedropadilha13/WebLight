@@ -4,9 +4,9 @@
 const char* mqttServer = "test.mosquitto.org";
 const int mqttPort = 1883;
 
-const char* cred[] = {"Pedro", "3331926740"};
+const char* cred[] = {"Sai Fora", "Colegao5449"};
 
-const char* client_id = "WebLight";
+const char* client_id = "StreamLight";
 const char* thread = "pedropadilha13/weblight/#";
 const char* response_topic = "pedropadilha13/weblight/responses";
 
